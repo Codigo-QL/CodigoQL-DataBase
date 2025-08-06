@@ -1,0 +1,35 @@
+name: Deploy DB to Supabase
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Instalar Prisma CLI
+        run: npm install -g prisma
+
+      - name: Rodar migrations no Supabase
+        env:
+          DATABASE_URL: ${{ secrets.SUPABASE_DATABASE_URL }}
+        run: npx prisma migrate deploy
+
+      - name: Rodar seed no Supabase
+        env:
+          DATABASE_URL: ${{ secrets.SUPABASE_DATABASE_URL }}
+        run: npx ts-node prisma/seed.ts
