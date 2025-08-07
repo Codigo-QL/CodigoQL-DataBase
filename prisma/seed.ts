@@ -68,11 +68,48 @@ async function seedCapitulos() {
   }
 }
 
+async function seedNiveis() {
+  const dataPath = path.join(__dirname, '../data/niveis.json');
+  const niveis = JSON.parse(fs.readFileSync(dataPath, 'utf-8'));
+
+  for (const n of niveis) {
+    await prisma.nivel.upsert({
+      where: { id: n.id },
+      update: {
+        codigo_cap: n.codigo_cap,
+        narrativa: n.narrativa,
+        enunciado: n.enunciado,
+        dica: n.dica,
+        personagem_nome: n.personagem_nome,
+        solucao: n.solucao,
+        feedback_correto: n.feedback_correto,
+        feedback_errado: n.feedback_errado,
+        codigo_base: n.codigo_base
+      },
+      create: {
+        id: n.id,
+        codigo_cap: n.codigo_cap,
+        narrativa: n.narrativa,
+        enunciado: n.enunciado,
+        dica: n.dica,
+        personagem_nome: n.personagem_nome,
+        solucao: n.solucao,
+        feedback_correto: n.feedback_correto,
+        feedback_errado: n.feedback_errado,
+        codigo_base: n.codigo_base
+      }
+    });
+    console.log(`Nivel id ${n.id} (capítulo ${n.codigo_cap}) inserido/atualizado.`);
+  }
+}
+
+
 
 async function main() {
   await seedPersonagens();
   await seedBaseDados();
   await seedCapitulos();
+  await seedNiveis();
 }
 
 main()

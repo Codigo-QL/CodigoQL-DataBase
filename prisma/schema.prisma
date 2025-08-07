@@ -11,6 +11,8 @@ model Personagem {
   id     Int    @id @default(autoincrement())
   nome   String @unique
   imagem Bytes?
+  niveis    Nivel[]
+
   @@map("personagem")
 }
 
@@ -18,6 +20,8 @@ model BaseDados {
   codigo  String @id @db.VarChar(10)
   nome    String @db.VarChar(50)
   arquivo Bytes
+  niveis    Nivel[]
+
   @@map("base_dados")
 }
 
@@ -25,6 +29,26 @@ model Capitulo {
   codigo    String @id @db.VarChar(10)
   titulo    String @db.Text
   descricao String @db.Text
+  niveis    Nivel[]
+
   @@map("capitulo")
 }
 
+model Nivel {
+  id               Int     @id @default(autoincrement())
+  codigo_cap       String  @db.VarChar(10)
+  narrativa        String  @db.Text
+  enunciado        String  @db.Text
+  dica             String  @db.Text
+  personagem_nome  String  @db.Text
+  solucao          String? @db.Text
+  feedback_correto String? @db.Text
+  feedback_errado  String? @db.Text
+  codigo_base      String? @db.VarChar(10)
+
+  capitulo   Capitulo   @relation(fields: [codigo_cap], references: [codigo])
+  personagem Personagem @relation(fields: [personagem_nome], references: [nome])
+  baseDados  BaseDados? @relation(fields: [codigo_base], references: [codigo])
+
+  @@map("nivel")
+}
