@@ -20,3 +20,11 @@ model BaseDados {
   arquivo Bytes
   @@map("base_dados")
 }
+
+model Capitulo {
+  codigo    String @id @db.VarChar(10)
+  titulo    String @db.Text
+  descricao String @db.Text
+  @@map("capitulo")
+}
+

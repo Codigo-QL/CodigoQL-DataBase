@@ -54,9 +54,25 @@ async function seedBaseDados() {
   }
 }
 
+async function seedCapitulos() {
+  const dataPath = path.join(__dirname, '../data/capitulos.json');
+  const capitulos = JSON.parse(fs.readFileSync(dataPath, 'utf-8'));
+
+  for (const c of capitulos) {
+    await prisma.capitulo.upsert({
+      where: { codigo: c.codigo },
+      update: { titulo: c.titulo, descricao: c.descricao },
+      create: { codigo: c.codigo, titulo: c.titulo, descricao: c.descricao }
+    });
+    console.log(`Capitulo ${c.codigo} inserido/atualizado.`);
+  }
+}
+
+
 async function main() {
   await seedPersonagens();
   await seedBaseDados();
+  await seedCapitulos();
 }
 
 main()
