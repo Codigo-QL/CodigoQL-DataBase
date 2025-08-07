@@ -11,4 +11,12 @@ model Personagem {
   id     Int    @id @default(autoincrement())
   nome   String @unique
   imagem Bytes?
+  @@map("personagem")
+}
+
+model BaseDados {
+  codigo  String @id @db.VarChar(10)
+  nome    String @db.VarChar(50)
+  arquivo Bytes
+  @@map("base_dados")
 }
