@@ -45,10 +45,25 @@ model Nivel {
   feedback_correto String? @db.Text
   feedback_errado  String? @db.Text
   codigo_base      String? @db.VarChar(10)
+  submissoes Submissao[]
 
   capitulo   Capitulo   @relation(fields: [codigo_cap], references: [codigo])
   personagem Personagem @relation(fields: [personagem_nome], references: [nome])
   baseDados  BaseDados? @relation(fields: [codigo_base], references: [codigo])
 
   @@map("nivel")
+}
+
+model Submissao {
+  id        Int      @id @default(autoincrement())
+  sessao_id String   @db.Text
+  matricula String?  @db.Text
+  nivel_id  Int
+  resposta     String   @db.Text
+  acertou   Boolean
+  data_resolucao DateTime @default(now())
+
+  nivel Nivel @relation(fields: [nivel_id], references: [id])
+
+  @@map("submissao")
 }
