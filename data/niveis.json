@@ -2,14 +2,14 @@
     {
         "id": 1,
         "codigo_cap": "C1",
-        "narrativa": "\"Gláucia, está aí? Descobrimos que o Roberto, que testemunhou no caso, na verdade é o assassino. Ele está prestes a fazer mais uma vítima! Precisamos de todas as informações dele agora!\"\n\nVocê escuta esse chamado urgente assim que retorna com os cafés que sua supervisora Gláucia pediu. Ao chegar à mesa, percebe que ela não está por perto. Sem saber ao certo o que fazer, você deixa os cafés e pensa em procurar sua chefe, mas a voz no rádio insiste:\n\n\"Está ouvindo?! Precisamos desses dados agora, ou mais uma pessoa pode morrer!\"\n\nO computador de Gláucia está ligado, com o terminal do banco de dados aberto, pronto para um comando. De repente, a responsabilidade está nas suas mãos.",
-        "enunciado": "Recupere todos os dados da testemunha chamada Roberto, que possui o RG 12.345.678-9, na tabela pessoa. Se precisar de ajuda, consulte a aba \"Dica\" para mais informações.",
-        "dica": "\"Ei, você não é a Gláucia! Estamos sem tempo para introduções, só siga minhas instruções\"\n\nPara resolver este nível, será necessário usar a construção básica de uma consulta SQL composta pelas cláusulas SELECT, FROM e WHERE.\n\nA tabela com a resposta se chama \"pessoa\", execute o seguinte comando para visualizar sua estrutura:\n\n```sql\nPRAGMA table_info(pessoa);\n```",
-        "personagem_nome": "Derek",
-        "solucao": "SELECT * FROM pessoa WHERE nome = 'Roberto' AND rg = '12.345.678-9';",
-        "feedback_correto": "Muito bem! Você recuperou corretamente todos os dados do Roberto.",
-        "feedback_errado": "Ainda não é a resposta correta. Verifique se está filtrando pelo nome e pelo RG informados e tente novamente.",
-        "codigo_base": "BD01"
+        "narrativa": "\"Gláucia, está aí? Descobrimos que o Roberto, que testemunhou no caso, na verdade é o assassino. Ele está prestes a fazer mais uma vítima! Precisamos de todas as informações dele agora! Só me lembro do RG dele: 12.345.678-9. Use essa informação na tabela ‘Moradores’ do banco de dados do condomínio.\"\n\nVocê escuta esse chamado urgente assim que retorna com os cafés que sua supervisora Gláucia pediu. Ao chegar à mesa, percebe que ela não está por perto. Sem saber ao certo o que fazer, você deixa os cafés e pensa em procurar sua chefe, mas a voz no rádio insiste:\n\n\"Está ouvindo?! Precisamos desses dados agora, ou mais uma pessoa pode morrer!\"\n\nO computador de Gláucia está ligado, com o terminal do banco de dados aberto, pronto para um comando. De repente, a responsabilidade está nas suas mãos.",
+        "enunciado": "Recupere todos os dados da testemunha chamada Roberto, que possui o RG 12.345.678-9, na tabela 'Moradores'",
+        "dica": "\"Ei, você não é a Gláucia! Estamos sem tempo para introduções, só siga minhas instruções\"\n\nPara resolver este nível, será necessário usar a construção básica de uma consulta SQL composta pelas cláusulas SELECT, FROM e WHERE.\n\nA tabela com a resposta se chama \"Moradores\", execute o seguinte comando para visualizar sua estrutura:\n\n```sql\nPRAGMA table_info(Moradores);\n```",
+        "personagem_nome": "Emília",
+        "solucao": "SELECT * FROM Moradores WHERE rg = '12.345.678-9';",
+        "feedback_correto": "Muito bem! Fique sabendo que sua ajuda salvou uma vida. Irei conversar com sua supervisora sobre este seu ato heróico!",
+        "feedback_errado": "Essas não são as informações que pedi! Não temos tempo para erros, uma vida está em risco!!",
+        "codigo_base": "C1S1"
     },
     {
         "id": 2,

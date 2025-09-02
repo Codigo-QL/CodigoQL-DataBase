@@ -1,5 +1,10 @@
 [
     {
+        "codigo": "C1S1",
+        "nome": "Banco Capítulo 1, Sequência 1",
+        "arquivo": "C1S1.sqlite"
+    },
+    {
         "codigo": "BD01",
         "nome": "Banco Capítulo 1",
         "arquivo": "exemplo1.sqlite"
