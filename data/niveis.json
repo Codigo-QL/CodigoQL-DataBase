@@ -5,7 +5,7 @@
         "narrativa": "\"Gláucia, está aí? Descobrimos que o Roberto, que testemunhou no caso, na verdade é o assassino. Ele está prestes a fazer mais uma vítima! Precisamos de todas as informações dele agora! Só me lembro do RG dele: 12.345.678-9. Use essa informação na tabela 'Moradores' do banco de dados do condomínio.\"\n\nVocê escuta esse chamado urgente assim que retorna com os cafés que sua supervisora Gláucia pediu. Ao chegar à mesa, percebe que ela não está por perto. Sem saber ao certo o que fazer, você deixa os cafés e pensa em procurar sua chefe, mas a voz no rádio insiste:\n\n\"Está ouvindo?! Precisamos desses dados agora, ou mais uma pessoa pode morrer!\"\n\nO computador de Gláucia está ligado, com o terminal do banco de dados aberto, pronto para um comando. De repente, a responsabilidade está nas suas mãos.",
         "enunciado": "Recupere todos os dados da testemunha chamada Roberto, que possui o RG 12.345.678-9, na tabela 'Moradores'",
         "dica": "\"Ei, você não é a Gláucia! Estamos sem tempo para introduções, só siga minhas instruções\"\n\nPara resolver este nível, será necessário usar a construção básica de uma consulta SQL composta pelas cláusulas SELECT, FROM e WHERE.\n\nA tabela com a resposta se chama \"Moradores\", execute o seguinte comando para visualizar sua estrutura:\n\n```sql\nPRAGMA table_info(Moradores);\n```",
-        "personagem_nome": "Emília",
+        "personagem_nome": "Emília (telefone)",
         "solucao": "SELECT * FROM Moradores WHERE rg = '12.345.678-9';",
         "feedback_correto": "Muito bem! Fique sabendo que sua ajuda salvou uma vida. Irei conversar com sua supervisora sobre este seu ato heróico!",
         "feedback_errado": "Essas não são as informações que pedi! Não temos tempo para erros, uma vida está em risco!!",
@@ -26,14 +26,14 @@
     {
         "id": 3,
         "codigo_cap": "C1",
-        "narrativa": "\"Gláucia, está aí? Descobrimos que o Roberto, que testemunhou no caso, na verdade é o assassino. Ele está prestes a fazer mais uma vítima! Precisamos de todas as informações dele agora!\"\n\nVocê escuta esse chamado urgente assim que retorna com os cafés que sua supervisora Gláucia pediu. Ao chegar à mesa, percebe que ela não está por perto. Sem saber ao certo o que fazer, você deixa os cafés e pensa em procurar sua chefe, mas a voz no rádio insiste:\n\n\"Está ouvindo?! Precisamos desses dados agora, ou mais uma pessoa pode morrer!\"\n\nO computador de Gláucia está ligado, com o terminal do banco de dados aberto, pronto para um comando. De repente, a responsabilidade está nas suas mãos.",
-        "enunciado": "Recupere todos os dados da testemunha chamada Roberto, que possui o RG 12.345.678-9, na tabela pessoa. Se precisar de ajuda, consulte a aba \"Dica\" para mais informações.",
-        "dica": "\"Ei, você não é a Gláucia! Estamos sem tempo para introduções, só siga minhas instruções\"\n\nPara resolver este nível, será necessário usar a construção básica de uma consulta SQL composta pelas cláusulas SELECT, FROM e WHERE.\n\nA tabela com a resposta se chama \"pessoa\", execute o seguinte comando para visualizar sua estrutura:\n\n```sql\nPRAGMA table_info(pessoa);\n```",
-        "personagem_nome": "Derek",
-        "solucao": "SELECT * FROM pessoa WHERE nome = 'Roberto' AND rg = '12.345.678-9';",
-        "feedback_correto": "Muito bem! Você recuperou corretamente todos os dados do Roberto.",
-        "feedback_errado": "Ainda não é a resposta correta. Verifique se está filtrando pelo nome e pelo RG informados e tente novamente.",
-        "codigo_base": "BD01"
+        "narrativa": "\"Só tem uma casa com o carro que procuramos, que sorte! Vou ligar para a equipe agora mesmo!\", diz Gláucia, enquanto digita rapidamente no telefone.\n\n\"Dr. Francisco Buarque falando. Gláucia, é você?\", uma nova voz soa pelo telefone. Apesar da formalidade, o tom é de um jovem.\n\n\"Francisco, você precisa parar de falar de um jeito tão formal! Sempre que te ouço, lembro dos professores que me traumatizaram na escola. Enfim, descobrimos que há apenas um carro no condomínio inteiro que bate com a descrição, e ele pertence à casa '1A'\".\n\n\"Dois assassinos em série no mesmo condomínio e agora um único Gol cinza numa comunidade com milhares de pessoas... A probabilidade de tudo isso acontecer é ínfima. Preciso documentar esses achados em um artigo depois…\"\n\n\"Cara, não é hora de pensar nisso\", outra voz desconhecida corta Francisco. \"Gláucia, gatinha, aqui é o Henrique. Fiquei sabendo que virou babá, hein? Espero que tenha fôlego pra te seguir! E falando nisso, Recruta, que bom ter você na equipe! Vou te dar o resumo da nossa linha de investigação para que possa ajudar. A UCC trabalha com perfis comportamentais; para isso, precisamos de padrões, o que nos leva a casos seriais. O padrão de violência e o modus operandi neste caso indicam um agressor homem. O nome é a peça que falta agora. Por favor, verifique na tabela 'Moradores' quem reside na casa '1A'\"\n\nAssim que Henrique lhe passa a tarefa, Gláucia se vira para você e aponta para o computador. É a sua vez de assumir novamente o controle do terminal.",
+        "enunciado": "Recupere o nome do morador na tabela 'Moradores' que possui o gênero 'M' e que more na casa '1A'.",
+        "dica": "\"E aí, recruta! Bem-vindo ao jogo. A lógica é a mesma de antes, só que agora com as informações que eu te passei. Mostre pra gente o que você sabe fazer!\"\n\nO seu objetivo é consultar a tabela **Moradores**. Assim como no nível anterior, será necessário filtrar a busca utilizando duas condições na cláusula **WHERE** para encontrar o morador que corresponda tanto à casa quanto ao gênero que investigamos.\n\nA tabela que contém a informação se chama **Moradores**. Use o comando a seguir para ver sua estrutura e os nomes exatos das colunas:\n\n```sql\nPRAGMA table_info(Moradores);\n```",
+        "feedback_correto": "\"Bingo! Valeu, Recruta. Agora nós podemos ir prender esse palhaço\"",
+        "feedback_errado": "\"Recruta, chega de brincadeiras. Isso não é o que pedi. Vamos lá, sei que você consegue\"",
+        "personagem_nome": "Henrique (telefone)",
+        "solucao": "SELECT nome FROM Moradores WHERE codigo_casa = '1A' AND genero = 'M';",
+        "codigo_base": "C1S1"
     },
     {
         "id": 4,
