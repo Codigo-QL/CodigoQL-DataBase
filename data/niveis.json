@@ -50,14 +50,14 @@
     {
         "id": 5,
         "codigo_cap": "C1",
-        "narrativa": "\"Gláucia, está aí? Descobrimos que o Roberto, que testemunhou no caso, na verdade é o assassino. Ele está prestes a fazer mais uma vítima! Precisamos de todas as informações dele agora!\"\n\nVocê escuta esse chamado urgente assim que retorna com os cafés que sua supervisora Gláucia pediu. Ao chegar à mesa, percebe que ela não está por perto. Sem saber ao certo o que fazer, você deixa os cafés e pensa em procurar sua chefe, mas a voz no rádio insiste:\n\n\"Está ouvindo?! Precisamos desses dados agora, ou mais uma pessoa pode morrer!\"\n\nO computador de Gláucia está ligado, com o terminal do banco de dados aberto, pronto para um comando. De repente, a responsabilidade está nas suas mãos.",
-        "enunciado": "Recupere todos os dados da testemunha chamada Roberto, que possui o RG 12.345.678-9, na tabela pessoa. Se precisar de ajuda, consulte a aba \"Dica\" para mais informações.",
-        "dica": "\"Ei, você não é a Gláucia! Estamos sem tempo para introduções, só siga minhas instruções\"\n\nPara resolver este nível, será necessário usar a construção básica de uma consulta SQL composta pelas cláusulas SELECT, FROM e WHERE.\n\nA tabela com a resposta se chama \"pessoa\", execute o seguinte comando para visualizar sua estrutura:\n\n```sql\nPRAGMA table_info(pessoa);\n```",
-        "personagem_nome": "Derek",
-        "solucao": "SELECT * FROM pessoa WHERE nome = 'Roberto' AND rg = '12.345.678-9';",
-        "feedback_correto": "Muito bem! Você recuperou corretamente todos os dados do Roberto.",
-        "feedback_errado": "Ainda não é a resposta correta. Verifique se está filtrando pelo nome e pelo RG informados e tente novamente.",
-        "codigo_base": "BD01"
+        "narrativa": "Você observa, fascinado, as mãos de Francisco folheando os registros. As páginas passam em um borrão, numa velocidade que desafia a compreensão, e você duvida que um ser humano normal consiga absorver qualquer informação daquele jeito.\n\nUma mão toca levemente seu ombro, e você se vira para encontrar Emília, a líder da equipe, com um pequeno sorriso no rosto.\n\n\"Ei, recruta\", ela diz em voz baixa para não atrapalhar a concentração geral. \"Espero que a noite de sono improvisada tenha ajudado. Sei que nossa rotina pode ser bem cansativa às vezes, mas lembre-se do porquê fazemos isso.\"\n\nEla faz uma pausa, seu olhar se desviando por um segundo para o restante da equipe trabalhando em silêncio antes de voltar para você.\n\n\"Enfim, preciso de um favor\", continua ela, inclinando a cabeça sutilmente na direção de Francisco. \"O nosso gênio ali está em outro planeta, processando todos os relatórios que trouxemos. Não quero nem pensar em quebrar a concentração dele agora. Se ele já tem essa cara séria normalmente, imagine o humor que fica quando alguém ousa interromper uma linha de raciocínio. Um dia você se acostuma. Ou não\"\n\nSeu sorriso some, dando lugar à expressão focada de uma líder. \"Lembro de ter lido que os três crimes que recebemos tiveram registros de itens roubados. Tenho uma suspeita que preciso confirmar. Poderia consultar para mim quais itens foram levados nos crimes associados ao código de caso '347B9'?\"",
+        "enunciado": "Consulte, na tabela ’Crimes’, o item roubado de todos os registros que possuem o código de caso igual a '347B9'",
+        "dica": "\"Conto com você, recruta. É uma busca simples, basta filtrar pelo código de caso que te passei. Vamos ver o que você encontra.\"\n\nDesta vez, a sua tarefa é focar em uma única coluna. Você precisará consultar a tabela **Crimes** e usar a cláusula **WHERE** para encontrar todos os registros que correspondam a um código de caso específico. Lembre-se de selecionar apenas a coluna que contém a informação do item roubado.\n\nA tabela que você precisa consultar se chama **Crimes**. Verifique a estrutura dela com o comando abaixo para encontrar os nomes exatos das colunas.\n\n```sql\nPRAGMA table_info(Crimes);\n```",
+        "feedback_correto": "\"Muito obrigada, Recruta. Tenho quase certeza de que encontrei um padrão nesses casos\"",
+        "feedback_errado": "\"Essas não são as informações que pedi. Estamos quase chegando em Goiânia, faça a consulta novamente antes de chegarmos\"",
+        "personagem_nome": "Emília",
+        "solucao": "SELECT item_roubado FROM Crimes WHERE codigo_caso = '347B9';",
+        "codigo_base": "C1S2"
     },
     {
         "id": 6,
