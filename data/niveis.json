@@ -7,8 +7,8 @@
         "dica": "\"Ei, você não é a Gláucia! Estamos sem tempo para introduções, só siga minhas instruções\"\n\nPara resolver este nível, será necessário usar a construção básica de uma consulta SQL composta pelas cláusulas SELECT, FROM e WHERE.\n\nA tabela com a resposta se chama \"Moradores\", execute o seguinte comando para visualizar sua estrutura:\n\n```sql\nPRAGMA table_info(Moradores);\n```",
         "personagem_nome": "Emília (telefone)",
         "solucao": "SELECT * FROM Moradores WHERE rg = '12.345.678-9';",
-        "feedback_correto": "Muito bem! Fique sabendo que sua ajuda salvou uma vida. Irei conversar com sua supervisora sobre este seu ato heróico!",
-        "feedback_errado": "Essas não são as informações que pedi! Não temos tempo para erros, uma vida está em risco!!",
+        "feedback_correto": "\"Muito bem! Fique sabendo que sua ajuda salvou uma vida. Irei conversar com sua supervisora sobre este seu ato heróico!\"",
+        "feedback_errado": "\"Essas não são as informações que pedi! Não temos tempo para erros, uma vida está em risco!!\"",
         "codigo_base": "C1S1"
     },
     {
@@ -19,8 +19,8 @@
         "enunciado": "Consulte na tabela 'Veiculos' o código da casa ao qual pertence o carro do modelo 'Gol' e da cor 'Cinza'",
         "personagem_nome": "Gláucia",
         "solucao": "SELECT codigo_casa FROM Veiculos WHERE modelo = 'Gol' AND cor = 'Cinza';",
-        "feedback_correto": "Correto!! Que sorte, só há um único carro em todo o condomínio com essa descrição. Assim fica fácil!",
-        "feedback_errado": "Eu, como sua supervisora, estou decepcionada! Essa consulta não está correta, deixe eu te ajudar e vamos tentar novamente",
+        "feedback_correto": "\"Correto!! Que sorte, só há um único carro em todo o condomínio com essa descrição. Assim fica fácil!\"",
+        "feedback_errado": "\"Eu, como sua supervisora, estou decepcionada! Essa consulta não está correta, deixe eu te ajudar e vamos tentar novamente\"",
         "codigo_base": "C1S1"
     },
     {
@@ -38,14 +38,14 @@
     {
         "id": 4,
         "codigo_cap": "C1",
-        "narrativa": "\"Gláucia, está aí? Descobrimos que o Roberto, que testemunhou no caso, na verdade é o assassino. Ele está prestes a fazer mais uma vítima! Precisamos de todas as informações dele agora!\"\n\nVocê escuta esse chamado urgente assim que retorna com os cafés que sua supervisora Gláucia pediu. Ao chegar à mesa, percebe que ela não está por perto. Sem saber ao certo o que fazer, você deixa os cafés e pensa em procurar sua chefe, mas a voz no rádio insiste:\n\n\"Está ouvindo?! Precisamos desses dados agora, ou mais uma pessoa pode morrer!\"\n\nO computador de Gláucia está ligado, com o terminal do banco de dados aberto, pronto para um comando. De repente, a responsabilidade está nas suas mãos.",
-        "enunciado": "Recupere todos os dados da testemunha chamada Roberto, que possui o RG 12.345.678-9, na tabela pessoa. Se precisar de ajuda, consulte a aba \"Dica\" para mais informações.",
-        "dica": "\"Ei, você não é a Gláucia! Estamos sem tempo para introduções, só siga minhas instruções\"\n\nPara resolver este nível, será necessário usar a construção básica de uma consulta SQL composta pelas cláusulas SELECT, FROM e WHERE.\n\nA tabela com a resposta se chama \"pessoa\", execute o seguinte comando para visualizar sua estrutura:\n\n```sql\nPRAGMA table_info(pessoa);\n```",
-        "personagem_nome": "Derek",
-        "solucao": "SELECT * FROM pessoa WHERE nome = 'Roberto' AND rg = '12.345.678-9';",
-        "feedback_correto": "Muito bem! Você recuperou corretamente todos os dados do Roberto.",
-        "feedback_errado": "Ainda não é a resposta correta. Verifique se está filtrando pelo nome e pelo RG informados e tente novamente.",
-        "codigo_base": "BD01"
+        "narrativa": "Depois de um dia exaustivo, seu corpo cedeu assim que encontrou a cama. O sono profundo é interrompido pelo toque insistente do celular. Um número desconhecido. Ao atender, uma voz familiar, de uma formalidade quase cirúrgica, soa do outro lado:\n\n\"Dr. Francisco Buarque falando. Recruta, sua presença é requisitada no escritório imediatamente. Fomos designados a um novo caso em Goiânia, para onde a equipe se deslocará em breve. O transporte aéreo incluirá provisões para a primeira refeição do dia\".\n\nAntes que você possa formular uma resposta, a chamada é encerrada.\n\nVocê se veste às pressas, joga algumas roupas numa mala e segue para o escritório. Já a bordo do jato com o resto da equipe, a reunião se inicia, liderada por Francisco.\n\n\"Fomos notificados sobre três homicídios ocorridos em Goiânia nos últimos dois meses\", ele começa, com o olhar fixo nos arquivos em sua mão. \"A investigação local está estagnada, mas levanta a hipótese de conexão entre os casos. Uma análise preliminar dos relatórios que recebi indica a presença de um padrão ritualístico nas cenas do crime, embora sua natureza exata ainda demande um estudo aprofundado. A metodologia do agressor sugere experiência, o que me leva a postular a existência de vítimas anteriores, ainda não associadas a esta série. Nosso primeiro passo, portanto, será validar essa hipótese. Recruta, sua diretriz inicial é compilar todos os dados de vítimas em Goiânia a partir do ano de 2023. Preciso dessa base de dados para uma análise manual em busca de correlações\".",
+        "enunciado": "Consulte, na tabela 'Vitimas', todos os registros que ocorreram na cidade de 'Goiânia' cujo ano de ocorrência seja maior ou igual a 2023.",
+        "dica": "\"Recruta, a precisão é fundamental neste estágio. Concentre-se nos dois parâmetros que delimitei para a sua busca: a localidade geográfica e o marco temporal. A intersecção desses dois conjuntos de dados nos fornecerá o que necessito.\"\n\nPara esta consulta, você deverá filtrar a tabela **Vitimas** com base em duas colunas distintas. Uma delas requer uma correspondência de texto exata para a cidade. A outra exige uma comparação numérica, utilizando um operador para selecionar valores que sejam 'maiores ou iguais' ao ano especificado. Lembre-se de combinar estas duas condições na sua cláusula **WHERE**.\n\nA tabela com os dados necessários se chama **Vitimas**. Examine sua estrutura com o comando a seguir para identificar os nomes corretos das colunas.\n\n```sql\nPRAGMA table_info(Vitimas);\n```",
+        "feedback_correto": "\"Maravilhoso, agora irei imprimir todos esses registros e fazer uma análise manual bem detalhada. Acredito que consigo passar por tudo isso até chegarmos em Goiânia\"",
+        "feedback_errado": "\"Recruta, temo que os dados que me foram apresentados não estão corretos. Peço, por favor, que tente novamente\"",
+        "personagem_nome": "Dr. Francisco Buarque",
+        "solucao": "SELECT * FROM Vitimas WHERE cidade = 'Goiânia' AND ano_ocorrencia >= 2023;",
+        "codigo_base": "C1S2"
     },
     {
         "id": 5,
