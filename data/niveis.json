@@ -86,14 +86,14 @@
     {
         "id": 8,
         "codigo_cap": "C1",
-        "narrativa": "\"Gláucia, está aí? Descobrimos que o Roberto, que testemunhou no caso, na verdade é o assassino. Ele está prestes a fazer mais uma vítima! Precisamos de todas as informações dele agora!\"\n\nVocê escuta esse chamado urgente assim que retorna com os cafés que sua supervisora Gláucia pediu. Ao chegar à mesa, percebe que ela não está por perto. Sem saber ao certo o que fazer, você deixa os cafés e pensa em procurar sua chefe, mas a voz no rádio insiste:\n\n\"Está ouvindo?! Precisamos desses dados agora, ou mais uma pessoa pode morrer!\"\n\nO computador de Gláucia está ligado, com o terminal do banco de dados aberto, pronto para um comando. De repente, a responsabilidade está nas suas mãos.",
-        "enunciado": "Recupere todos os dados da testemunha chamada Roberto, que possui o RG 12.345.678-9, na tabela pessoa. Se precisar de ajuda, consulte a aba \"Dica\" para mais informações.",
-        "dica": "\"Ei, você não é a Gláucia! Estamos sem tempo para introduções, só siga minhas instruções\"\n\nPara resolver este nível, será necessário usar a construção básica de uma consulta SQL composta pelas cláusulas SELECT, FROM e WHERE.\n\nA tabela com a resposta se chama \"pessoa\", execute o seguinte comando para visualizar sua estrutura:\n\n```sql\nPRAGMA table_info(pessoa);\n```",
-        "personagem_nome": "Derek",
-        "solucao": "SELECT * FROM pessoa WHERE nome = 'Roberto' AND rg = '12.345.678-9';",
-        "feedback_correto": "Muito bem! Você recuperou corretamente todos os dados do Roberto.",
-        "feedback_errado": "Ainda não é a resposta correta. Verifique se está filtrando pelo nome e pelo RG informados e tente novamente.",
-        "codigo_base": "BD01"
+        "narrativa": "Mal Henrique se afasta e Gláucia já está de pé, gesticulando para o quadro branco.\n\n\"Ideia! Brilhante!\", diz ela, mais para si mesma do que para os outros. \"Os itens roubados são antiguidades, e as idades batem com o perfil de colecionadores. Eles não acham isso em lojas, eles usam a internet... Fóruns!\"\n\nSeu olhar encontra o seu, intenso e decidido.\n\n\"Recruta, preciso de um cruzamento de dados, agora. Temos o RG das vítimas na tabela 'Vitimas_colecionador'. Use isso para encontrar o email delas no banco de dados 'Cidadaos'. Com os e-mails, você consegue rastrear a atividade online de cada uma na tabela 'Atividades_online'. Se eu estiver certa, um nome de fórum vai se repetir como um padrão.\"\n\nEla bate levemente na sua mesa para dar ênfase. \"Mãos à obra! Quero o nome desse fórum!\"",
+        "enunciado": "A partir das tabelas 'Vitimas_colecionador', 'Cidadaos' e 'Atividades_online', elabore uma consulta que retorne o nome dos fóruns frequentados pelas vítimas. Use DISTINCT para eliminar duplicatas",
+        "dica": "\"Vamos, recruta, o caminho é esse! Das vítimas para os cidadãos, dos cidadãos para a internet! É uma corrente de dados, você só precisa conectar os elos. Quero ver a mágica acontecer!\"\n\nEste desafio levará suas habilidades de **JOIN** a um novo patamar. Você precisará conectar três tabelas em sequência: **Vitimas_colecionador** com **Cidadaos**, e depois **Cidadaos** com **Atividades_online**. Para cada **JOIN**, você deve identificar a coluna que serve como ponte entre as tabelas.\n\nAlém disso, como várias vítimas podem ter frequentado o mesmo fórum, o resultado pode ter nomes duplicados. Para limpar a lista e mostrar cada nome de fórum uma única vez, use a palavra-chave **DISTINCT** logo após o **SELECT**.\n\nVocê precisará da estrutura de todas as três tabelas para encontrar as colunas de conexão. Use os comandos:\n\n```sql\nPRAGMA table_info(Vitimas_colecionador);\nPRAGMA table_info(Cidadaos);\nPRAGMA table_info(Atividades_online);\n```",
+        "feedback_correto": "\"Você conseguiu! Incrível! Meu palpite, estava certo. tem um único grupo que todas as vítimas estavam. Essa é a zona de caça do nosso assassino\"",
+        "feedback_errado": "\"Assim você me desanima, Recruta. Essa não é a resposta que estamos procurando!\"",
+        "personagem_nome": "Gláucia",
+        "solucao": "SELECT DISTINCT ao.nome_forum FROM Vitimas_colecionador vc JOIN Cidadaos c ON vc.rg = c.rg JOIN Atividades_online ao ON c.email = ao.email;",
+        "codigo_base": "C1S2"
     },
     {
         "id": 9,
