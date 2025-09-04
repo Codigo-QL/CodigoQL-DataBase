@@ -74,14 +74,14 @@
     {
         "id": 7,
         "codigo_cap": "C1",
-        "narrativa": "\"Gláucia, está aí? Descobrimos que o Roberto, que testemunhou no caso, na verdade é o assassino. Ele está prestes a fazer mais uma vítima! Precisamos de todas as informações dele agora!\"\n\nVocê escuta esse chamado urgente assim que retorna com os cafés que sua supervisora Gláucia pediu. Ao chegar à mesa, percebe que ela não está por perto. Sem saber ao certo o que fazer, você deixa os cafés e pensa em procurar sua chefe, mas a voz no rádio insiste:\n\n\"Está ouvindo?! Precisamos desses dados agora, ou mais uma pessoa pode morrer!\"\n\nO computador de Gláucia está ligado, com o terminal do banco de dados aberto, pronto para um comando. De repente, a responsabilidade está nas suas mãos.",
-        "enunciado": "Recupere todos os dados da testemunha chamada Roberto, que possui o RG 12.345.678-9, na tabela pessoa. Se precisar de ajuda, consulte a aba \"Dica\" para mais informações.",
-        "dica": "\"Ei, você não é a Gláucia! Estamos sem tempo para introduções, só siga minhas instruções\"\n\nPara resolver este nível, será necessário usar a construção básica de uma consulta SQL composta pelas cláusulas SELECT, FROM e WHERE.\n\nA tabela com a resposta se chama \"pessoa\", execute o seguinte comando para visualizar sua estrutura:\n\n```sql\nPRAGMA table_info(pessoa);\n```",
-        "personagem_nome": "Derek",
-        "solucao": "SELECT * FROM pessoa WHERE nome = 'Roberto' AND rg = '12.345.678-9';",
-        "feedback_correto": "Muito bem! Você recuperou corretamente todos os dados do Roberto.",
-        "feedback_errado": "Ainda não é a resposta correta. Verifique se está filtrando pelo nome e pelo RG informados e tente novamente.",
-        "codigo_base": "BD01"
+        "narrativa": "A sala de reuniões é um centro de atividade focada. A equipe analisa a lista definitiva, riscando nomes, fazendo anotações nos quadros brancos e discutindo hipóteses em voz baixa. Em meio a essa concentração, Henrique se aproxima da sua mesa com um andar tranquilo.\n\n\"E então, recruta? Encontrando seu lugar no meio do caos?\", ele pergunta com um sorriso discreto. \"Tenho uma análise que pode nos ajudar a clarear as coisas.\"\n\nEle se apoia na beirada da mesa, mantendo o tom de conversa.\n\n\"É o tipo de cálculo que eu poderia pedir para o supercomputador que o Francisco chama de cérebro\", ele diz, gesticulando discretamente para o colega concentrado. \"Mas quero ter certeza de que ele não perca o foco. E também quero ver do que você é capaz\"\n\nHenrique se endireita, seu tom se tornando um pouco mais sério, mas ainda encorajador.\n\n\"A Gláucia consolidou todos os casos confirmados em uma nova tabela chamada 'Vitimas_colecionador'. Sim, foi o apelido que demos para ele. Quero que você consulte essa tabela e me retorne três informações: a média de idade das vítimas, a idade da mais jovem e a da mais velha. Esses dados são essenciais para definirmos o perfil da vitimologia desse maluco\"",
+        "enunciado": "A partir da tabela 'Vitimas_colecionador', calcule e retorne a média de idade de todas as vítimas, assim como a idade da vítima mais jovem e a da mais velha.",
+        "dica": "\"Beleza, recruta, hora de fazer a matemática. Quero o pacote completo: a média de idade, a idade do caçula e a do vovô do grupo. O SQL tem uns truques pra fazer isso de uma vez só. Mostra pra mim.\"\n\nPara resolver este desafio, você não vai filtrar linhas, mas sim calcular valores a partir de uma coluna inteira. O SQL oferece \"funções de agregação\" para isso.\n\nVocê precisará usar três funções diferentes na sua cláusula **SELECT**: uma para calcular a **média** (AVG), uma para encontrar o valor **mínimo** (MIN) e outra para o valor **máximo** (MAX). Todas elas podem ser usadas na mesma consulta para retornar os três resultados de uma vez.\n\nA nova tabela consolidada se chama **Vitimas_colecionador**. Use o comando abaixo para confirmar o nome da coluna de idade.\n\n```sql\nPRAGMA table_info(Vitimas_colecionador);\n```",
+        "feedback_correto": "\"Valeu, Recruta. Esses dados irão nos ajudar bastante. Vamos lá pegar esse louco!\"",
+        "feedback_errado": "\"Eu não sou um gênio, mas tenho quase certeza de que esse resultado está errado. Tente de novo, Recruta!\"",
+        "personagem_nome": "Henrique",
+        "solucao": "SELECT avg(idade) as media, min(idade) as minimo, max(idade) as maximo FROM Vitimas_colecionador;",
+        "codigo_base": "C1S2"
     },
     {
         "id": 8,
