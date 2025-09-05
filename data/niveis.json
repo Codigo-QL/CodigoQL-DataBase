@@ -110,14 +110,14 @@
     {
         "id": 10,
         "codigo_cap": "C1",
-        "narrativa": "\"Gláucia, está aí? Descobrimos que o Roberto, que testemunhou no caso, na verdade é o assassino. Ele está prestes a fazer mais uma vítima! Precisamos de todas as informações dele agora!\"\n\nVocê escuta esse chamado urgente assim que retorna com os cafés que sua supervisora Gláucia pediu. Ao chegar à mesa, percebe que ela não está por perto. Sem saber ao certo o que fazer, você deixa os cafés e pensa em procurar sua chefe, mas a voz no rádio insiste:\n\n\"Está ouvindo?! Precisamos desses dados agora, ou mais uma pessoa pode morrer!\"\n\nO computador de Gláucia está ligado, com o terminal do banco de dados aberto, pronto para um comando. De repente, a responsabilidade está nas suas mãos.",
-        "enunciado": "Recupere todos os dados da testemunha chamada Roberto, que possui o RG 12.345.678-9, na tabela pessoa. Se precisar de ajuda, consulte a aba \"Dica\" para mais informações.",
-        "dica": "\"Ei, você não é a Gláucia! Estamos sem tempo para introduções, só siga minhas instruções\"\n\nPara resolver este nível, será necessário usar a construção básica de uma consulta SQL composta pelas cláusulas SELECT, FROM e WHERE.\n\nA tabela com a resposta se chama \"pessoa\", execute o seguinte comando para visualizar sua estrutura:\n\n```sql\nPRAGMA table_info(pessoa);\n```",
-        "personagem_nome": "Derek",
-        "solucao": "SELECT * FROM pessoa WHERE nome = 'Roberto' AND rg = '12.345.678-9';",
-        "feedback_correto": "Muito bem! Você recuperou corretamente todos os dados do Roberto.",
-        "feedback_errado": "Ainda não é a resposta correta. Verifique se está filtrando pelo nome e pelo RG informados e tente novamente.",
-        "codigo_base": "BD01"
+        "narrativa": "A poeira do caso do Colecionador já havia baixado, deixando um rastro de tédio e silêncio no escritório. Você e Gláucia estavam praticamente hipnotizados pelas telas, até que ela rola a cadeira dela para mais perto da sua mesa, com um ar conspiratório.\n\n\"Ei\", ela sussurra, como se estivesse prestes a contar um segredo de estado. \"Estou oficialmente entediada. E quando fico entediada, fico curiosa.\"\n\nEla aponta com o queixo para um monitor que exibe as câmeras da carceragem. \"Viu aquele detento ali? O universo precisa de mais rostos como aquele e menos papelada como esta.\"\n\nUm sorriso se espalha pelo rosto dela.\n\n\"Vamos fazer uma pequena investigação paralela. Consegui ver o ID dele na tela do guarda: 32. Puxa a ficha dele pra mim e cruza com a nossa base de casos, retornando o código do caso, o tipo do caso e a descrição. Quero saber que tipo de problema um cara desses arruma.\"",
+        "enunciado": "A partir das tabelas 'Casos' e 'Detento_caso', consulte o código, o tipo e a descrição do caso associado ao detento cujo ID é 32",
+        "dica": "\"Vamos lá, recruta, me ajuda a matar essa curiosidade! O segredo está em conectar o ID do nosso galã misterioso com a ficha de casos dele. Pense nisso como uma ponte de dados. Construa a ponte e me mostre o que tem do outro lado!\"\n\nPara resolver este quebra-cabeça, você precisará buscar informações em duas tabelas diferentes. A tabela **Detento_caso** contém o link entre o detento e o código do caso, enquanto a tabela **Casos** tem os detalhes que queremos (código, tipo e descrição).\n\nUse um **JOIN** para conectar as duas tabelas pela coluna que elas têm em comum. Depois de conectá-las, use a cláusula **WHERE** para filtrar os resultados e mostrar apenas os casos do detento com o ID **32**.\n\nVocê vai precisar da estrutura das duas tabelas para descobrir como conectá-las. Use os comandos abaixo:\n\n```sql\nPRAGMA table_info(Casos);\nPRAGMA table_info(Detento_caso);\n```",
+        "feedback_correto": "\"Você conseguiu! Ah, ele está envolvido com casos de agressão. Valentões não fazem o meu tipo, não importa o quão bonitos sejam\"",
+        "feedback_errado": "\"Recruta, isso é trabalho sério. Tenta uma nova consulta, estou muito curiosa\"",
+        "personagem_nome": "Gláucia",
+        "solucao": "SELECT c.codigo, c.descricao, c.tipo FROM Casos C JOIN Detento_caso dc ON c.codigo = dc.codigo_caso WHERE dc.id_detento = 32;",
+        "codigo_base": "C1S3"
     },
     {
         "id": 11,

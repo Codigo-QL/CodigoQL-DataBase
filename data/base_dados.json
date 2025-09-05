@@ -10,6 +10,11 @@
         "arquivo": "C1S2.sqlite"
     },
     {
+        "codigo": "C1S3",
+        "nome": "Banco Capítulo 1, Sequência 3",
+        "arquivo": "C1S3.sqlite"
+    },
+    {
         "codigo": "BD01",
         "nome": "Banco Capítulo 1",
         "arquivo": "exemplo1.sqlite"
