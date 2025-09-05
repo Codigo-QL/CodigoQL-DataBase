@@ -122,14 +122,14 @@
     {
         "id": 11,
         "codigo_cap": "C1",
-        "narrativa": "\"Gláucia, está aí? Descobrimos que o Roberto, que testemunhou no caso, na verdade é o assassino. Ele está prestes a fazer mais uma vítima! Precisamos de todas as informações dele agora!\"\n\nVocê escuta esse chamado urgente assim que retorna com os cafés que sua supervisora Gláucia pediu. Ao chegar à mesa, percebe que ela não está por perto. Sem saber ao certo o que fazer, você deixa os cafés e pensa em procurar sua chefe, mas a voz no rádio insiste:\n\n\"Está ouvindo?! Precisamos desses dados agora, ou mais uma pessoa pode morrer!\"\n\nO computador de Gláucia está ligado, com o terminal do banco de dados aberto, pronto para um comando. De repente, a responsabilidade está nas suas mãos.",
-        "enunciado": "Recupere todos os dados da testemunha chamada Roberto, que possui o RG 12.345.678-9, na tabela pessoa. Se precisar de ajuda, consulte a aba \"Dica\" para mais informações.",
-        "dica": "\"Ei, você não é a Gláucia! Estamos sem tempo para introduções, só siga minhas instruções\"\n\nPara resolver este nível, será necessário usar a construção básica de uma consulta SQL composta pelas cláusulas SELECT, FROM e WHERE.\n\nA tabela com a resposta se chama \"pessoa\", execute o seguinte comando para visualizar sua estrutura:\n\n```sql\nPRAGMA table_info(pessoa);\n```",
-        "personagem_nome": "Derek",
-        "solucao": "SELECT * FROM pessoa WHERE nome = 'Roberto' AND rg = '12.345.678-9';",
-        "feedback_correto": "Muito bem! Você recuperou corretamente todos os dados do Roberto.",
-        "feedback_errado": "Ainda não é a resposta correta. Verifique se está filtrando pelo nome e pelo RG informados e tente novamente.",
-        "codigo_base": "BD01"
+        "narrativa": "A tela exibe a longa lista de infrações, e você e Gláucia estão tão absortas na leitura que não percebem a figura que se aproxima em silêncio por trás de suas cadeiras.\n\n\"A correlação é estatisticamente significativa.\"\n\nA voz de Francisco, desprovida de qualquer emoção, soa diretamente atrás de vocês. O susto é inevitável; você e Gláucia se sobressaltam, virando-se bruscamente. Ele está ali, parado, o olhar fixo no monitor de vocês, ignorando completamente a reação de vocês.\n\n\"O resultado está dentro dos parâmetros esperados\", ele continua, como se estivesse ditando um relatório. \"A maioria dos casos envolve agressão física. Proponho validar essa hipótese com dados percentuais. Para isso, precisamos do universo total de eventos como base de cálculo. Recruta\", ele finalmente desvia o olhar da tela para você, \"sua tarefa: consulte e retorne para mim a quantidade absoluta de todos os casos registrados no ano de 2025.\"",
+        "enunciado": "Consulte na tabela 'Casos' e retorne a quantidade total de casos registrados durante o ano de 2025",
+        "dica": "\"Recruta, para estabelecermos uma base de cálculo fidedigna, é imperativo quantificar o universo total de eventos. Sua diretriz é aplicar um filtro temporal para o ano de 2025 e, em seguida, computar o número absoluto de registros resultantes. Proceda.\"\n\nSua tarefa é contar o número total de linhas na tabela **Casos** que atendem a um critério específico. Primeiro, utilize a cláusula **WHERE** para filtrar os casos que ocorreram no ano de 2025.\n\nEm seguida, para contar quantas linhas foram retornadas por esse filtro, use a função de agregação **COUNT(*)** na sua cláusula **SELECT**.\n\nA tabela que contém os dados necessários se chama **Casos**. Use o comando a seguir para visualizar sua estrutura.\n\n```sql\nPRAGMA table_info(Casos);\n```",
+        "feedback_correto": "\"Esse é o resultado o qual eu estava esperando. Muito bem, vamos para a próxima etapa da nossa investigação extraoficial\"",
+        "feedback_errado": "\"Não sei o número exato, mas tenho certeza de que não é esse. Faça a consulta novamente, Recruta\"",
+        "personagem_nome": "Dr. Francisco Buarque",
+        "solucao": "SELECT count(*) as quantidade_casos FROM Casos WHERE ano = 2025;",
+        "codigo_base": "C1S3"
     },
     {
         "id": 12,
