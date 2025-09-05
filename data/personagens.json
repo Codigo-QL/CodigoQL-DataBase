@@ -1,6 +1,30 @@
 [
     {
-        "nome": "Derek",
-        "imagem": "Derek.webp"
+        "nome": "Emília (telefone)",
+        "imagem": "Emilia (telefone).webp"
+    },
+    {
+        "nome": "Gláucia",
+        "imagem": "Glaucia.webp"
+    },
+    {
+        "nome": "Dr. Francisco Buarque",
+        "imagem": "Francisco.webp"
+    },
+    {
+        "nome": "Emília",
+        "imagem": "Emilia.webp"
+    },
+    {
+        "nome": "Henrique",
+        "imagem": "Henrique.webp"
+    },
+    {
+        "nome": "Francisco (telefone)",
+        "imagem": "Francisco (telefone).webp"
+    },
+    {
+        "nome": "Henrique (telefone)",
+        "imagem": "Henrique (telefone).webp"
     }
 ]
