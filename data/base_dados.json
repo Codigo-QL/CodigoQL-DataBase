@@ -23,10 +23,5 @@
         "codigo": "C2S2",
         "nome": "Banco Capítulo 2, Sequência 2",
         "arquivo": "C2S2.sqlite"
-    },
-    {
-        "codigo": "BD01",
-        "nome": "Banco Capítulo 1",
-        "arquivo": "exemplo1.sqlite"
     }
 ]
