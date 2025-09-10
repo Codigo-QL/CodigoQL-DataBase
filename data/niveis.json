@@ -262,5 +262,17 @@
         "feedback_errado": "“Deprimente, Recruta. Essa não é a lista que eu esperava”",
         "personagem_nome": "Gláucia",
         "codigo_base": "C2S1"
+    },
+    {
+        "id": 23,
+        "codigo_cap": "C2",
+        "narrativa": "O dia de relatórios foi um purgatório de monotonia, uma tortura silenciosa para uma equipe que ansiava por ação. Você foi para casa exausta, deixando os outros para trás, presos em uma ansiedade coletiva. Ninguém descansava de verdade; a caça ao assassino de Emília era a única coisa que importava.\n\nO esgotamento foi tanto que você desabou na cama, caindo instantaneamente em um sono pesado. Um sono que foi estilhaçado no meio da madrugada pelo toque estridente do seu celular. Era Henrique.\n\n“Recruta. É agora”, a voz dele soou do outro lado, sem rodeios, carregada de uma adrenalina contida. “Temos uma pista sobre o assassino da Emília. Venha para o escritório. Imediatamente.”\n\nVocê se vestiu em um piscar de olhos, o coração martelando no peito. Ao chegar ao escritório, a cena era de uma calma tensa. A equipe inteira estava lá, reunida em um círculo silencioso ao redor da sua mesa. Quando eles se afastaram para você passar, você viu o porquê** um bilhete, deixado sobre o seu teclado. A caligrafia era precisa, quase cirúrgica.\n\n“Recruta,\nPreciso de uma lista com o endereço e a cidade das casas da tabela ‘Casas_alvo’ que não possuem correspondência na tabela ‘Casas_incendiadas’.\nA primeira tabela contém todos os alvos potenciais de Ronaldo Biel; a segunda, os que ele já atacou. A diferença entre as duas nos dará os próximos locais para onde ele pode ir.\nPreciso desses dados para agora. Chegarei com mais instruções em breve.”",
+        "enunciado": "A partir das tabelas 'Casas_alvo' e 'Casas_incendiadas', retorne o endereço e a cidade de todas as casas que constam como alvos potenciais mas que ainda não foram incendiadas (ou seja, não possuem um registro correspondente na tabela 'Casas_incendiadas').",
+        "dica": "\"Eu te treinei para isso, recruta. A lógica é simples se você olhar do jeito certo. De um lado, o plano dele. Do outro, o que ele já fez. Encontre a diferença. É nesse espaço que vamos encontrá-lo... e pará-lo. Confio em você.\"\n\nEsta é uma aplicação clássica da técnica para encontrar registros \"faltantes\". Você já fez isso antes.\n\nPara encontrar as casas em **Casas_alvo** que não estão em **Casas_incendiadas**, comece com um **LEFT JOIN** da primeira tabela para a segunda.\n\nO passo final, como você já sabe, é filtrar o resultado com a cláusula **WHERE**, procurando pelas linhas onde uma coluna da tabela **Casas_incendiadas** (como **id_casa**) **IS NULL**. Isso vai lhe dar a lista exata dos alvos que ainda não foram atacados.\n\nVocê precisará da estrutura das duas tabelas para realizar a junção.\n\n```sql\nPRAGMA table_info(Casas_alvos);\nPRAGMA table_info(Casas_incendiadas);\n```",
+        "solucao": "SELECT Ca.endereco, Ca.cidade FROM Casas_alvos Ca LEFT JOIN Casas_incendiadas Ci ON Ca.id = Ci.id_casa WHERE Ci.id_casa IS NULL;",
+        "feedback_correto": "“Isso mesmo, Recruta! Essa era a lista que eu queria”",
+        "feedback_errado": "Você olha para a lista, e parece que ela está errada. Você sente a vontade de tentar de novo, até acertar.",
+        "personagem_nome": "Nota Misteriosa",
+        "codigo_base": "C2S2"
     }
 ]
