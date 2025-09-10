@@ -250,5 +250,17 @@
         "feedback_errado": "“Recruta, não vamos decepcionar a Diretoria. Corrija este relatório”",
         "personagem_nome": "Henrique",
         "codigo_base": "C2S1"
+    },
+    {
+        "id": 22,
+        "codigo_cap": "C2",
+        "narrativa": "Você entrega o último relatório para Henrique, que o adiciona a uma pilha crescente de papéis. Ele mal abre a boca para dar a próxima instrução quando Gláucia surge ao seu lado, a energia dela crepitando no ar silencioso do escritório.\n\n“Henrique, gatão, já passou o relatório dos suspeitos sob vigilância para o recruta fazer? A Diretoria acabou de me ligar, estão pressionando por isso”, ela diz, a voz rápida e um pouco ansiosa.\n\n“Gatinha, era exatamente o que eu ia fazer agora”, Henrique responde com um meio sorriso, mas Gláucia o corta no mesmo instante.\n\n“Então deixa que eu passo”, ela insiste, e por um momento, a máscara de eficiência dela racha, revelando uma vulnerabilidade. “Já estou cansada de ficar parada por aqui. É melhor manter a cabeça ocupada do que ficar sozinha com pensamentos... nada legais.”\n\nEla se vira para você, a energia agora totalmente focada na tarefa.\n\n“Recruta, é o último, e é para agora. Precisamos de um relatório completo cruzando a tabela de ‘Suspeitos’ com a de ‘Alvos_vigilancia’. Quero a ‘alcunha’ do suspeito de um lado e o ‘nome’ do alvo vigiado do outro. E, de novo, preciso da visão total** a lista deve incluir os suspeitos que não estão sob vigilância e também qualquer alvo que esteja sendo vigiado mas que ainda não tenha sido classificado como suspeito. Sem pontas soltas. A diretoria quer o quadro completo.”",
+        "enunciado": "A partir das tabelas 'Suspeitos' e 'Alvos_vigilancia', crie um relatório completo que cruze as informações de ambas. A consulta deve retornar a 'alcunha' do suspeito e o 'nome' do alvo, garantindo que a lista inclua tanto os suspeitos que não possuem um alvo de vigilância correspondente quanto os alvos que não estão vinculados a um suspeito.",
+        "dica": "\"Vamos fechar isso, recruta, sem enrolação. A lógica é a mesma daquele relatório geral do Henrique** quero a visão completa. De um lado, todos os suspeitos, vigiados ou não. Do outro, todos os alvos, suspeitos ou não. É a união total dos dois mundos, sem deixar ninguém de fora. A diretoria não aceita relatório pela metade.\"\n\nPara criar este relatório final e consolidado, você precisará novamente daquela junção que mostra tudo de ambos os lados. Lembre-se que o **LEFT JOIN** prioriza a tabela da esquerda e o **RIGHT JOIN** a da direita.\n\nPara incluir todos os registros de **Suspeitos** e todos os de **Alvos_vigilancia** em uma única consulta, a ferramenta correta é o **FULL OUTER JOIN**. Ele garantirá que tanto os suspeitos sem vigilância quanto os alvos sem um suspeito correspondente apareçam na lista final.\n\nVocê precisará da estrutura das duas tabelas para realizar a junção.\n\n```sql\nPRAGMA table_info(Suspeitos);\nPRAGMA table_info(Alvos_vigilancia);\n```",
+        "solucao": "SELECT S.alcunha, Av.nome FROM Suspeitos S FULL OUTER JOIN Alvos_vigilancia Av ON S.nome = Av.nome;",
+        "feedback_correto": "“Maravilha, agora podemos mandar tudo para a diretoria!”",
+        "feedback_errado": "“Deprimente, Recruta. Essa não é a lista que eu esperava”",
+        "personagem_nome": "Gláucia",
+        "codigo_base": "C2S1"
     }
 ]
