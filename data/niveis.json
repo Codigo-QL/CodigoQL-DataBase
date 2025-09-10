@@ -226,5 +226,17 @@
         "feedback_errado": "“Essa consulta está errada, Recruta. Deixe eu te ajudar e vamos tentar de novo”",
         "personagem_nome": "Gláucia",
         "codigo_base": "C2S1"
+    },
+    {
+        "id": 20,
+        "codigo_cap": "C2",
+        "narrativa": "No momento em que você entrega a lista para Gláucia, a porta da sala de reuniões se abre. Henrique sai, a expressão focada, e se dirige diretamente a você, interceptando a conversa com um gesto.\n\n“Recruta, um momento, por favor”, ele diz, a voz carregada com seriedade. “Antes que a Gláucia comece a aplicar as correções e as novas designações no sistema, preciso de um relatório final para os superiores.”\n\nEle te encara, a mente claramente organizando a requisição.\n\n“Preciso de um quadro completo de todas as anomalias que encontramos hoje. Quero uma única lista que una as duas que você gerou: ela deve conter o id dos policiais e o código dos casos aos quais estão vinculados, mas precisa explicitamente mostrar tanto os policiais que estão sem caso quanto os casos que estão sem um policial válido. Essencialmente, a junção de tudo.”\n\nEle faz uma pausa, reforçando a importância do pedido.\n\n“Este relatório consolidado vai expor todas as inconsistências de uma só vez. É o que usaremos para justificar a auditoria e entender a origem dessa falha nos dados.”",
+        "enunciado": "A partir das tabelas 'Policiais' e 'Casos', crie um relatório consolidado que liste o id dos policiais e o código dos casos. A consulta deve retornar uma lista completa que inclua tanto os policiais que não estão designados a um caso quanto os casos que não possuem um policial válido associado.",
+        "dica": "\"Recruta, para o relatório final, precisamos da visão completa. Pense nas duas listas que você gerou: a dos policiais 'livres' e a dos casos 'órfãos'. Agora, eu quero uma única consulta que me traga as duas coisas ao mesmo tempo. A lista completa, sem deixar ninguém de fora, de nenhum dos lados. É o panorama total que vai para a mesa dos chefes.\"\n\nVocê já viu como o **LEFT JOIN** prioriza a tabela da esquerda e o **RIGHT JOIN** prioriza a da direita. Para obter o relatório completo que o Henrique pediu, você precisa de um tipo de junção que faça as duas coisas simultaneamente: o **FULL OUTER JOIN**.\n\nO **FULL OUTER JOIN** combina o comportamento dos dois: ele retorna todos os registros de ambas as tabelas. Ele mostrará os policiais com seus casos, os policiais sem casos (com o **codigo** do caso como **NULL**) e os casos sem policiais válidos (com o **id** do policial como **NULL**), tudo em uma única lista.\n\nA estrutura das tabelas continua sendo a base para a sua consulta.\n\n```sql\nPRAGMA table_info(Policiais);\nPRAGMA table_info(Casos);\n```",
+        "solucao": "SELECT P.id, C.codigo FROM Policiais P FULL OUTER JOIN Casos C ON P.nome = C.nome_policial_responsavel;",
+        "feedback_correto": "“Ótimo trabalho, Recruta. Tenho certeza de que os superiores irão notar o seu trabalho duro”",
+        "feedback_errado": "“Recruta, este relatório será mandado para os nossos superiores e não deve conter um único erro. Vamos, tente novamente”",
+        "personagem_nome": "Henrique",
+        "codigo_base": "C2S1"
     }
 ]
