@@ -238,5 +238,17 @@
         "feedback_errado": "“Recruta, este relatório será mandado para os nossos superiores e não deve conter um único erro. Vamos, tente novamente”",
         "personagem_nome": "Henrique",
         "codigo_base": "C2S1"
+    },
+    {
+        "id": 21,
+        "codigo_cap": "C2",
+        "narrativa": "Você entrega o relatório consolidado para Henrique. Ele o pega com um aceno de cabeça, mal olhando para o papel antes de colocá-lo cuidadosamente sobre uma pilha de documentos em sua mesa.\n\n“Ótimo, Recruta. Agora a próxima inconsistência”, ele diz, o tom de voz rápido e focado. “O laboratório forense acabou de me ligar. Eles identificaram outra falha em nossos registros** evidências que foram catalogadas em códigos de caso que simplesmente não existem.”\n\nEle se vira para você, a expressão séria.\n\n“Precisamos isolar essas evidências 'órfãs'. Gere uma lista para mim com o ID e a descrição de cada evidência que não esteja vinculada a um código de caso válido em nosso sistema. Preciso disso o mais rápido possível.”\n\nEle nota sua expressão e acrescenta, como que para contextualizar a urgência** “Tenho só mais um relatório para te pedir depois deste. Com isso, fechamos o dossiê completo para a diretoria.”",
+        "enunciado": "A partir das tabelas 'Evidencias' e 'Casos', gere uma lista contendo o ID e a descrição de todas as evidências que estão associadas a um código de caso que não existe na tabela 'Casos'.",
+        "dica": "\"Ok, recruta, a lógica aqui é a mesma daquela lista de suspeitos sem caso que o Francisco pediu. Precisamos encontrar as evidências que estão 'flutuando' no sistema, sem um caso válido para chamar de seu. O princípio é o mesmo, só muda o alvo. Mostre que você pegou o jeito.\"\n\nA técnica para resolver este problema é a mesma que você já usou para encontrar registros sem correspondência, buscando dados na tabela **Evidencias** que não têm um link válido na tabela **Casos**.\n\nVocê pode alcançar o resultado tanto com um **LEFT JOIN** quanto com um **RIGHT JOIN**, o que importa é a ordem das tabelas. Se usar **LEFT JOIN**, a tabela **Evidencias** deve vir primeiro, à esquerda. Se preferir usar **RIGHT JOIN**, a lógica se inverte, e a tabela **Evidencias** deve ser colocada à direita.\n\nIndependentemente da sua escolha de **JOIN**, o passo final é o mesmo** filtrar o resultado com a cláusula **WHERE**, procurando por linhas onde uma coluna da tabela **Casos** (como **codigo**) **IS NULL**. Isso vai isolar as evidências órfãs.\n\nVocê precisará da estrutura das duas tabelas para realizar a junção.\n\n```sql\nPRAGMA table_info(Evidencias);\nPRAGMA table_info(Casos);\n```",
+        "solucao": "SELECT E.id, E.descricao FROM Evidencias E LEFT JOIN Casos C ON E.codigo_caso = C.codigo WHERE C.codigo IS NULL;",
+        "feedback_correto": "“Muito bem, Recruta. Vamos para o próximo e último relatório”",
+        "feedback_errado": "“Recruta, não vamos decepcionar a Diretoria. Corrija este relatório”",
+        "personagem_nome": "Henrique",
+        "codigo_base": "C2S1"
     }
 ]
