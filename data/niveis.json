@@ -202,5 +202,17 @@
         "feedback_errado": "“Essa lista está errada, Recruta. Preciso dela urgentemente, tente de novo!”",
         "personagem_nome": "Henrique",
         "codigo_base": "C2S1"
+    },
+    {
+        "id": 18,
+        "codigo_cap": "C2",
+        "narrativa": "Enquanto Henrique conduz uma reunião sobre a delegação de casos, tentando preencher o vácuo deixado por Emília, Francisco se aproxima da sua mesa. Ele se move em silêncio, quase como uma sombra. Se antes ele já era distante, o luto o envolveu em uma camada de gelo, tornando-o mais frio e impenetrável do que nunca.\n\nEle para ao seu lado, e com uma voz completamente desprovida de inflexão, como se estivesse ditando um comando para uma máquina, ele faz um pedido.\n\n“Recruta. Requisito uma extração de dados”, ele começa, sem qualquer preâmbulo. “Consulte o nome de todos os suspeitos que não possuem um vínculo ativo com nenhum caso em nosso sistema.”\n\nEle faz uma pausa, o olhar fixo em um ponto vago além do seu monitor.\n\n“Preciso desta lista para uma análise manual. É necessário otimizar nossa base de dados, expurgando registros que não são mais pertinentes. A tabela ‘Caso_suspeito’ é a que estabelece a vinculação. Sua consulta deve, portanto, isolar todos os suspeitos que não possuem uma correspondência nessa tabela de ligação.”",
+        "enunciado": "A partir das tabelas 'Suspeitos' e 'Caso_suspeito', retorne o nome de todos os suspeitos que não estão atualmente vinculados a nenhum caso. A consulta deve identificar os suspeitos que não possuem um registro correspondente na tabela de ligação 'Caso_suspeito'.",
+        "dica": "\"Recruta, a diretriz é a exclusão. O objetivo é identificar o subconjunto de indivíduos na base **Suspeitos** para os quais não existe uma entrada correspondente na tabela de vinculação **Caso_suspeito**. A eficiência exige a purga de dados anômalos. Execute a consulta.\"\n\nApós usar o **LEFT JOIN** da tabela **Suspeitos** para a **Caso_suspeito**, o resultado incluirá todos os suspeitos. A característica principal para os que não possuem um caso é que as colunas da tabela **Caso_suspeito** aparecerão com o valor **NULL**.\n\nPortanto, a maneira correta de filtrar e encontrar apenas esses suspeitos é adicionar uma cláusula **WHERE** que verifique se um campo-chave da tabela **Caso_suspeito** (como **id_caso**) possui o valor nulo, utilizando a cláusula **IS NULL**. Essa condição seleciona precisamente as linhas onde a junção não encontrou uma correspondência.\n\nVocê precisará da estrutura das duas tabelas para realizar a junção.\n\n```sql\nPRAGMA table_info(Suspeitos);\nPRAGMA table_info(Caso_suspeito);\n```",
+        "solucao": "SELECT S.nome FROM Suspeitos S LEFT JOIN Caso_suspeito Cs ON S.id = Cs.id_suspeito WHERE Cs.id_caso IS NULL;",
+        "feedback_correto": "“Essa é a lista a qual eu estava precisando. Devo começar a análise imediatamente”",
+        "feedback_errado": "“Você cometeu um equívoco. Tente de novo, Recruta.”",
+        "personagem_nome": "Dr. Francisco Buarque",
+        "codigo_base": "C2S1"
     }
 ]
