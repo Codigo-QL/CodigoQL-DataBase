@@ -10,6 +10,7 @@ datasource db {
 model aluno {
   id    String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   email String @unique
+  submissoes Submissao[]
 
   @@map("aluno")
 }
@@ -69,7 +70,9 @@ model Submissao {
   resposta     String   @db.Text
   acertou   Boolean
   data_resolucao DateTime @default(now())
+  alunoId        String?  @db.Uuid 
 
+  aluno      aluno?   @relation(fields: [alunoId], references: [id])
   nivel Nivel @relation(fields: [nivel_id], references: [id])
 
   @@map("submissao")
