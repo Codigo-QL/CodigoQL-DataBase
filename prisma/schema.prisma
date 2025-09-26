@@ -7,6 +7,14 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model aluno {
+  id         String      @id @db.Text
+  email String @unique
+  submissoes Submissao[]
+
+  @@map("aluno")
+}
+
 model Personagem {
   id     Int    @id @default(autoincrement())
   nome   String @unique
@@ -62,7 +70,9 @@ model Submissao {
   resposta     String   @db.Text
   acertou   Boolean
   data_resolucao DateTime @default(now())
+  alunoId        String?  @db.Text 
 
+  aluno      aluno?   @relation(fields: [alunoId], references: [id])
   nivel Nivel @relation(fields: [nivel_id], references: [id])
 
   @@map("submissao")
